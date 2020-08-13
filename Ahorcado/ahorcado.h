@@ -144,3 +144,5 @@ void ahorcado(int x/* arguments */) {
   }
 
 }
+
+//comentario
