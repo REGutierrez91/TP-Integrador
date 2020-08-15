@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include <stdbool.h>
+
 
 
 void IngresarPalabra(char x[],int *y);
@@ -37,23 +37,19 @@ void IngresarPalabra(char x[],int *y){
     system("cls");
     printf("Palabra:\n");
 
-    //int i=0;
+    int i=0;
     do {
       scanf("%c",&z);
 
-      if (isalpha(z)) {
-        printf("Es una letra");
-      } else {
-        printf("NO es una letra");
-      }
-      /*
+      
+
 
       }
       else{
         printf("debes ingresar solo letras, prueba otra vez\n");
         system("pause");
         system("cls");
-      }*/
+
     } while(z!=0);
 
 
@@ -61,7 +57,7 @@ void IngresarPalabra(char x[],int *y){
 
   }
 }
-/*
+
 void ReemplazarLetras(char x[20],int y){
   char z;
   for (int i = 0; i <= y; i++) {
@@ -81,4 +77,4 @@ int ValidarAlfa(char x){
   }
 
   return isalpha(x);
-}*/
+}

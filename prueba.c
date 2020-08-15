@@ -12,7 +12,7 @@ main() {
 	if (isalpha(letra)) {
     printf("Es una letra");
   } else {
-    printf("NO es una letra");
+    printf("NO es una letra\n");
   }
   return 0;
 }
