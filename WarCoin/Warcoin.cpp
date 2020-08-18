@@ -96,8 +96,6 @@ int ingresoMax(){
 return cantMax2;
 }
 
-
-
 int verificadorPila(){
 	int l,n=1,pila2;
 	for(l=0;l<n;l++){
@@ -112,8 +110,6 @@ int verificadorPila(){
 
 return pila2;
 }
-
-
 
 int turnos(int cantMin,int cantMax,int pila,int A){
 	int B,C,i,j,k,l,n=1,p=1;

@@ -117,7 +117,7 @@ void Adivinum(int x) {
   srand(getpid());
 
 	int secreto=Concatenar(numeros);
-	  printf("\n El secreto es %d \n\n", secreto);
+	  //printf("\n El secreto es %d \n\n", secreto);
 
 
  // printf("\n El secreto es %d \n\n", secreto);
@@ -125,9 +125,9 @@ void Adivinum(int x) {
   int Numero_Ingresado[4];
 
 
-  printf("***** Adivinum ***** \n ");
+  Logo_Adivinum();
   printf("***** El juego consiste en adivinar un numero de cuatro digitos  ***** \n ");
-  printf("Este número es al azar, y se encuentra entre %d y %d "
+  printf("Este numero es al azar, y se encuentra entre %d y %d "
          "Solo tienes  %d intentos\n",
          INFERIOR, SUPERIOR, CANT_INTENTOS);
          printf(" Jugamos? \n ");
@@ -144,7 +144,7 @@ void Adivinum(int x) {
     Generar_Arreglo(respuesta,Numero_Ingresado);
 
     if (respuesta == secreto) {
-      printf("Correcto. El número secreto es %d. Tu puntaje es %d y lo adivinaste en el %d "
+      printf("Correcto. El numero secreto es %d. Tu puntaje es %d y lo adivinaste en el %d "
              "intento",
              secreto, puntos, intentoWinner
 			 );
@@ -168,7 +168,7 @@ void Adivinum(int x) {
 	}
 
     if (intentos == INTENTOS_MIN ) {
-      printf("Game Over. El número Secreto es %d", secreto);
+      printf("Game Over. El numero Secreto es %d", secreto);
       break;
     }
 }
@@ -206,7 +206,7 @@ void MayMen(int x) {
 
 
     if (respuesta == secreto) {
-      printf("Correcto. El número secreto es %d. Tu puntaje es %d y lo adivinaste en el %d "
+      printf("Correcto. El numero secreto es %d. Tu puntaje es %d y lo adivinaste en el %d "
              "intento",
              secreto, puntos, intentoWinner
 			 );
@@ -214,7 +214,7 @@ void MayMen(int x) {
     }
 
     if (intentos == INTENTOS_MIN ) {
-	      printf("Game Over. El número Secreto es %d", secreto);
+	      printf("Game Over. El numero Secreto es %d", secreto);
 	      break;
 	    }
 
@@ -235,7 +235,7 @@ void MayMen(int x) {
 
 		     	men=respuesta;
 		      printf(
-		          " Te quedan %d Intentos : Error ! el número Secreto es mayor, y se encuentra entre %d y %d \n",
+		          " Te quedan %d Intentos : Error ! el numero Secreto es mayor, y se encuentra entre %d y %d \n",
 		          intentos, men, may);
 		      }else{
 		      	printf("Error! ingresa un num mayor.\n" );
@@ -247,7 +247,7 @@ void MayMen(int x) {
 
 		      may=respuesta;
 		      printf(
-		          " Te quedan %d Intentos : Error! el número Secreto es menor, y se encuentra entre %d y %d \n",
+		          " Te quedan %d Intentos : Error! el numero Secreto es menor, y se encuentra entre %d y %d \n",
 		          intentos,men,may);
 				}else{
 						printf("Error! ingresa un num menor.\n" );
@@ -265,63 +265,44 @@ void MayMen(int x) {
 system("pause");
 }
 
-void WarCoin(int x) {
+void WarCoin(int x){
+
   system("cls");
-  srand(getpid());
+	int pila,A,D,cantMin,cantMax;
 
-  int secreto = aleatorio_en_rango(INFERIOR, SUPERIOR);
-
-  //printf("El secreto es %d\n\n", secreto);   ---->testeo de numero aleatorio
-  int respuesta, may=999, men=1, intentos = 10, puntos=11, intentoWinner=0;
-
-
-  printf("***** MayMen ***** \n\n");
-  printf("***** El juego consiste en adivinar un numero secreto\n");
-  printf("***** Este numero es al azar, y se encuentra entre %d y %d "
-         "\n***** Solo tienes  %d intentos\n",INFERIOR, SUPERIOR, CANT_INTENTOS);
-  printf("----- Jugamos? \n\n ");
+	srand (time(NULL));
+  Logo();
+	cantMin=ingresoMin();
+	cantMax=ingresoMax();
+  pila=verificadorPila();
+	system("cls");
+  Logo();
+	printf("La cantidad minima de monedas a extraer es: %i y maxima: %i \n",cantMin,cantMax);
+	printf("La cantidad inicial de monedas en la pila es: %i \n\n",pila);
 
 
-  while (1) {
-    intentos--;
-    puntos --;
-	intentoWinner ++;
-    printf("\nIngresa un Num: ");
-    scanf("%d", &respuesta);
-    if (respuesta == secreto) {
-      printf("Correcto. El numero secreto es %d. Tu puntaje es %d y lo adivinaste en el %d "
-             "intento\n\n",
-             secreto, puntos, intentoWinner
-			 );
-      break;
-    }
 
-	if(intentos > ULTIMO_INTENTO){
+	A=1+rand()%2;
 
-		     if (respuesta < secreto) {
-		     	men=respuesta;
-		      printf(
-		          " Te quedan %d Intentos : Error ! el numero Secreto es mayor, y se encuentra entre %d y %d \n",
-		          intentos, men, may);
-
-		    } else if(respuesta > secreto) {
-		      may=respuesta;
-		      printf(
-		          " Te quedan %d Intentos : Error! el numero Secreto es menor, y se encuentra entre %d y %d \n",
-		          intentos,men,may);
-
-		    }
-
-	}else if(intentos == ULTIMO_INTENTO){
-		printf("Error! Es tu ultimo Intento. " );
-
+	if(A==1){
+		printf("Es tu turno. \n");
+	}
+	if(A==2){
+		printf("Ahora juega la computadora. \n");
 	}
 
-    if (intentos == INTENTOS_MIN ) {
-      printf("Game Over. El numero Secreto es %d", secreto);
-      break;
-    }
-}
+
+	D=turnos(cantMin,cantMax,pila,A);
+
+
+
+	if(D==1){
+		printf("\n\n\n Game Over!!! Puntos: 0");
+	}
+	else{
+		printf("\n\n\n Ganaste !!! Puntos: 5\n\n");
+	}
+
 system("pause");
 }
 

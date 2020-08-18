@@ -1,4 +1,13 @@
-
+void Logo(){
+	printf("\n\t=================================================================");
+	printf("\n\t||       _    _               _____         _                  ||");
+	printf("\n\t||      | |  | |             /  __ \\       (_)                 ||");
+	printf("\n\t||      | |  | |  __ _  _ __ | /  \\/  ___   _  _ __            ||");
+	printf("\n\t||      | |/\\| | / _` || '__|| |     / _ \\ | || '_ \\           ||");
+	printf("\n\t||      \\  /\\  /| (_| || |   | \\__/\\| (_) || || | | |          ||");
+	printf("\n\t||       \\/  \\/  \\__,_||_|    \\____/ \\___/ |_||_| |_|          ||");
+  printf("\n\t=================================================================\n\n");
+}
 
 int ingresoMin(){
 	int cantMin2,i,n=1;
@@ -14,7 +23,7 @@ int ingresoMin(){
 			n++;
 		}
 	}
-	
+
 return cantMin2;
 }
 
@@ -32,7 +41,7 @@ int ingresoMax(){
 			n++;
 		}
 	}
-	
+
 return cantMax2;
 }
 
@@ -49,18 +58,18 @@ int verificadorPila(){
 			n++;
 		}
 	}
-	
+
 return pila2;
 }
 
 
 
 int turnos(int cantMin,int cantMax,int pila,int A){
-	int B,C,i,j,k,l,n=1,p=1; 
+	int B,C,i,j,k,l,n=1,p=1;
 		for(i=0;pila>0;i++){
-		
-	
-		
+
+
+
 		if(A==1){
 			for(j=0;j<n;j++){
 				printf("\nIngresa la cantidad de monedas que vas a eliminar entre %i y %i:  ",cantMin,cantMax);
@@ -78,20 +87,20 @@ int turnos(int cantMin,int cantMax,int pila,int A){
 							printf("Ingrese un valor menor a %i\n",pila);
 							n++;
 						}
-							
+
 					}
 				}
 				else{
 					printf("\nERROR: se deben desapilar entre %i y %i monedas. Intentalo de nuevo!!!!: \n",cantMin,cantMax);
 					n++;
 				}
-			}	
+			}
 			printf("Quedan %i monedas.\n",pila);
 			A=2;
 		}
-		
-		
-		
+
+
+
 		else{
 			for(k=0;k<p;k++){
 				C=1+rand()%41;
@@ -108,8 +117,8 @@ int turnos(int cantMin,int cantMax,int pila,int A){
 						}
 						else{
 							C=0;
-							p++;	
-						}	
+							p++;
+						}
 					}
 				}
 				else{
@@ -128,12 +137,6 @@ int turnos(int cantMin,int cantMax,int pila,int A){
 			break;
 		}
 	}
-	
+
 return A;
 }
-
-
-
-
-
-
