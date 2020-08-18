@@ -290,5 +290,5 @@ void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
     Grafico(11);
   }
 
-
+  system("pause");
 }

@@ -23,17 +23,17 @@
 #define INFERIOR 1000
 #define SUPERIOR 9999
 
-void MayMen();
-void Adivinum();
-void WarCoin();
-void Ahorcado();
+void MayMen(int x);
+void Adivinum(int x);
+void WarCoin(int x);
+void Ahorcado(int x);
 
 int main() {
 
-  int Eleccion;
+  int Eleccion,x;
 
   do {
-
+    system("cls");
     printf("**************************************************\n");
   	printf("*                                                *\n");
   	printf("*             ----- JUEGOS  -----                *\n");
@@ -57,24 +57,24 @@ int main() {
   	printf("**************************************************\n\n");
 
     printf("Ingrese una opcion: ");
-    scanf("%d\n",&Eleccion);
-    system("cls");
+    scanf("%d",&Eleccion);
+
 
     switch (Eleccion) {
       case 1:
-      MayMen();
+      MayMen(x);
       break;
 
       case 2:
-      Adivinum();
+      Adivinum(x);
       break;
 
       case 3:
-      WarCoin();
+      WarCoin(x);
       break;
 
       case 4:
-      Ahorcado();
+      Ahorcado(x);
       break;
 
       case 5:
@@ -93,8 +93,9 @@ int main() {
   return 0;
 }
 
-void Adivinum() {
-  int min,max;
+void Adivinum(int x) {
+    system("cls");
+    int min,max;
     int num_aleatorio;
     int numeros[4];
     int fstop;
@@ -171,10 +172,11 @@ void Adivinum() {
       break;
     }
 }
+system("pause");
 }
 
-void MayMen() {
-
+void MayMen(int x) {
+  system("cls");
   srand(getpid());
 
   int secreto = aleatorio_en_rango(INFERIOR_M, SUPERIOR_M);
@@ -260,10 +262,11 @@ void MayMen() {
 	}
 
 }
+system("pause");
 }
 
-void WarCoin() {
-
+void WarCoin(int x) {
+  system("cls");
   srand(getpid());
 
   int secreto = aleatorio_en_rango(INFERIOR, SUPERIOR);
@@ -319,10 +322,11 @@ void WarCoin() {
       break;
     }
 }
+system("pause");
 }
 
-void Ahorcado() {
-
+void Ahorcado(int x) {
+  system("cls");
   char Palabra[20];
   char Guiones[20];
   int Cant_Caracteres=0;
@@ -330,5 +334,5 @@ void Ahorcado() {
   Cant_Caracteres=Cargar_Palabra(Palabra);
   Cargar_Guiones(Guiones,Cant_Caracteres);
   Ingreso_Letras(Palabra,Guiones,Cant_Caracteres);
-
+  system("pause");
 }
