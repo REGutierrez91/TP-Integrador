@@ -37,6 +37,7 @@ int Cargar_Palabra(char Palabra[]) {
     printf("Palabra:\n");
     do{
       scanf("%s",&Palabra[contador]);
+      Palabra[contador]=toupper(Palabra[contador]);
       if(Palabra[contador] == '.') break;
       contador++;
     }while (Palabra[contador]!='.');
@@ -79,6 +80,7 @@ void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
   int gano=0;
   int aciertos=0;
 
+  system("cls");
   printf("\n\nJugador B, que comience el juego! >:)\n");
   system("pause");
   system("cls");
@@ -87,7 +89,7 @@ void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
     system("cls");
     Grafico(Errores);
     printf("\t");
-    for (int g = 0; g < Cant_Caracteres; g++) {
+    for (int g = 0; g < Cant_Caracteres; g++) {   //impresion de
       printf(" %c",Guiones[g]);
     }
     printf("\n\nLetras erroneas ingresadas: ");
@@ -99,6 +101,7 @@ void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
 
     printf("\n\nIngrese una letra:");
     scanf("%s",&Letra_Ingresada);
+    Letra_Ingresada=toupper(Letra_Ingresada);
     bandera=0;
     for (int i = 0; i < Cant_Caracteres; i++) {
       if (Letra_Ingresada==Palabra[i]) {
