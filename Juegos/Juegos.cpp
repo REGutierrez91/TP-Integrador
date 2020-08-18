@@ -74,7 +74,6 @@ int main() {
       break;
 
       case 4:
-      //printf("entra...\n");
       Ahorcado();
       break;
 

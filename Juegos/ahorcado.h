@@ -45,73 +45,6 @@ void Cargar_Guiones(char Guiones[], int Cant_Caracteres) {
   }
 }
 
-void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
-  char Letra_Ingresada;
-  char Letras_Erroneas[12];
-  int Errores=0;
-  int bandera;
-  int gano=0;
-  int aciertos=0;
-
-  system("cls");
-  printf("\n\nJugador B, que comience el juego! >:)\n");
-  system("pause");
-  system("cls");
-
-  do {
-    system("cls");
-    Grafico(Errores);
-    printf("\t");
-    for (int g = 0; g < Cant_Caracteres; g++) {   //impresion de
-      printf(" %c",Guiones[g]);
-    }
-    printf("\n\nLetras erroneas ingresadas: ");
-    for (int h = 0; h <= Errores; h++) {
-      printf("%c ",Letras_Erroneas[h]);
-    }
-    printf("\nerrores:%d\n",Errores);
-    printf("Aciertos:%d\n",aciertos);
-
-    printf("\n\nIngrese una letra:");
-    scanf("%s",&Letra_Ingresada);
-    Letra_Ingresada=toupper(Letra_Ingresada);
-    bandera=0;
-    for (int i = 0; i < Cant_Caracteres; i++) {
-      if (Letra_Ingresada==Palabra[i]) {
-        Guiones[i]=Palabra[i];
-        bandera++;
-        }
-      }
-      if (bandera==0) {
-        Letras_Erroneas[Errores]=Letra_Ingresada;
-        Errores++;
-      }
-      aciertos=0;
-      for (int j = 0; j < Cant_Caracteres; j++) {
-        if (Palabra[j]==Guiones[j]) {
-          aciertos++;
-        }
-      }
-      if (aciertos==Cant_Caracteres) {
-        gano=1;
-        break;
-      }
-
-
-
-  } while(Errores<11 || gano==0);
-
-  system("cls");
-  if (gano==1) {
-    printf("\nGano!!!!\n" );
-  }
-  if (Errores==11) {
-    Grafico(11);
-  }
-
-
-}
-
 void Grafico(int x) {
   if (x==0) {
 
@@ -291,4 +224,71 @@ void Grafico(int x) {
     printf("*                                                             *\n");
     printf("***************************************************************\n");
   }
+}
+
+void Ingreso_Letras(char Palabra[], char Guiones[], int Cant_Caracteres){
+  char Letra_Ingresada;
+  char Letras_Erroneas[12];
+  int Errores=0;
+  int bandera;
+  int gano=0;
+  int aciertos=0;
+
+  system("cls");
+  printf("\n\nJugador B, que comience el juego! >:)\n");
+  system("pause");
+  system("cls");
+
+  do {
+    system("cls");
+    Grafico(Errores);
+    printf("\t");
+    for (int g = 0; g < Cant_Caracteres; g++) {   //impresion de
+      printf(" %c",Guiones[g]);
+    }
+    printf("\n\nLetras erroneas ingresadas: ");
+    for (int h = 0; h <= Errores; h++) {
+      printf("%c ",Letras_Erroneas[h]);
+    }
+    printf("\nerrores:%d\n",Errores);
+    printf("Aciertos:%d\n",aciertos);
+
+    printf("\n\nIngrese una letra:");
+    scanf("%s",&Letra_Ingresada);
+    Letra_Ingresada=toupper(Letra_Ingresada);
+    bandera=0;
+    for (int i = 0; i < Cant_Caracteres; i++) {
+      if (Letra_Ingresada==Palabra[i]) {
+        Guiones[i]=Palabra[i];
+        bandera++;
+        }
+      }
+      if (bandera==0) {
+        Letras_Erroneas[Errores]=Letra_Ingresada;
+        Errores++;
+      }
+      aciertos=0;
+      for (int j = 0; j < Cant_Caracteres; j++) {
+        if (Palabra[j]==Guiones[j]) {
+          aciertos++;
+        }
+      }
+      if (aciertos==Cant_Caracteres) {
+        gano=1;
+        break;
+      }
+
+
+
+  } while(Errores<11 || gano==0);
+
+  system("cls");
+  if (gano==1) {
+    printf("\nGano!!!!\n" );
+  }
+  if (Errores==11) {
+    Grafico(11);
+  }
+
+
 }
